@@ -3,7 +3,7 @@
 myvenv\Scripts\activate
 python manage.py runserver
 
-- Git commin:
+- Git commit:
 
 git status
 git add -A .
@@ -17,3 +17,15 @@ cd my-first-blog
 source myvenv/bin/activate
 git pull
 python manage.py collectstatic
+
+
+
+GIT PASS
+
+Ostapik
+jaljybljysuvyljy1836
+
+ADMIN PASS
+
+Ostap
+jaljybljysuvyljy1836

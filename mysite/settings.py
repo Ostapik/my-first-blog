@@ -57,7 +57,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -65,17 +64,21 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': [
+                # PyJade part:   ##############################
+                ('pyjade.ext.django.Loader', (
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ))
+            ],
+            'builtins': ['pyjade.ext.django.templatetags'],
         },
     },
 ]
 
-TEMPLATE_LOADERS = (
-        ('pyjade.ext.django.Loader', (
-            'django.template.loaders.filesystem.Loader',
-            'django.template.loaders.app_directories.Loader',
-            'django.template.loaders.eggs.Loader',
-        )),
-    )
+COMPRESS_PRECOMPILERS = (
+    ('text/scss', 'sass --scss --compass {infile} {outfile}'),
+)
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
